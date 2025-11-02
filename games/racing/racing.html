@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Racing</title>
+    <link rel="stylesheet" href="racing.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏎️ Мультиплеер Гонки</h1>
+            <div class="controls">
+                <button onclick="window.location.href='/'">🏠 Главная</button>
+            </div>
+        </header>
+        
+        <div id="loginScreen" class="screen">
+            <div class="login-form">
+                <h2>Введите ваше имя</h2>
+                <input type="text" id="playerName" placeholder="Имя игрока" maxlength="15">
+                <button onclick="joinGame()">Присоединиться к гонке</button>
+            </div>
+        </div>
+        
+        <div id="gameScreen" class="screen hidden">
+            <div class="game-info">
+                <div class="players-list">
+                    <h3>Игроки на трассе:</h3>
+                    <div id="playersContainer"></div>
+                </div>
+                
+                <div class="race-info">
+                    <div id="raceStatus">Ожидание игроков...</div>
+                    <div class="controls-info">
+                        <p>Управление: ← → (движение), Пробел (ускорение)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="race-track">
+                <canvas id="gameCanvas" width="800" height="400"></canvas>
+            </div>
+            
+            <div id="leaderboard" class="leaderboard">
+                <h3>Таблица лидеров</h3>
+                <div id="leaderboardList"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="racing.js"></script>
+</body>
+</html>
