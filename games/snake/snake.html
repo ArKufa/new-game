@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐍 Змейка</h1>
+            <div class="controls">
+                <button onclick="resetGame()">🔄 Новая игра</button>
+                <button onclick="window.location.href='/'">🏠 Главная</button>
+            </div>
+        </header>
+        
+        <div class="game-info">
+            <div class="score">Счет: <span id="score">0</span></div>
+            <div class="high-score">Рекорд: <span id="highScore">0</span></div>
+        </div>
+        
+        <div class="game-container">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+        </div>
+        
+        <div class="instructions">
+            <p>Управление: Стрелки ← ↑ → ↓</p>
+            <p>Цель: Собирайте еду и не врезайтесь в стены или себя!</p>
+        </div>
+    </div>
+    
+    <script src="snake.js"></script>
+</body>
+</html>
