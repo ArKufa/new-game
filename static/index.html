@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Game Arcade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Multi-Game Arcade 🎮</h1>
+            <p>Выберите игру и начинайте играть!</p>
+        </header>
+        
+        <div class="games-grid">
+            <div class="game-card" onclick="window.location.href='/snake'">
+                <div class="game-icon">🐍</div>
+                <h3>Змейка</h3>
+                <p>Классическая змейка с современной графикой</p>
+            </div>
+            
+            <div class="game-card" onclick="window.location.href='/tetris'">
+                <div class="game-icon">🧩</div>
+                <h3>Тетрис</h3>
+                <p>Собирайте линии и набирайте очки</p>
+            </div>
+            
+            <div class="game-card" onclick="window.location.href='/racing'">
+                <div class="game-icon">🏎️</div>
+                <h3>Гонки (Мультиплеер)</h3>
+                <p>Соревнуйтесь с другими игроками онлайн</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Сервер работает на Render.com</p>
+        </footer>
+    </div>
+</body>
+</html>
