@@ -1,17 +1,17 @@
 {
   "name": "multi-game-server",
   "version": "1.0.0",
-  "description": "Multi-game server with Snake, Tetris and Racing",
-  "main": "server/index.js",
+  "description": "Multi-game server with Snake, Tetris and 3D Racing",
+  "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "dev": "nodemon server/index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "express": "^4.18.2",
     "socket.io": "^4.7.2"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   }
 }
