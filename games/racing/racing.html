@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiplayer Racing</title>
+    <title>3D Multiplayer Racing</title>
     <link rel="stylesheet" href="racing.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🏎️ Мультиплеер Гонки</h1>
+            <h1>🏎️ 3D Мультиплеер Гонки</h1>
             <div class="controls">
                 <button onclick="window.location.href='/'">🏠 Главная</button>
             </div>
@@ -17,34 +17,65 @@
         
         <div id="loginScreen" class="screen">
             <div class="login-form">
-                <h2>Введите ваше имя</h2>
+                <h2>Настройки гонки</h2>
                 <input type="text" id="playerName" placeholder="Имя игрока" maxlength="15">
-                <button onclick="joinGame()">Присоединиться к гонке</button>
+                
+                <div class="selection-group">
+                    <label>Выберите машину:</label>
+                    <select id="carSelect">
+                        <option value="sports">🚗 Спорткар (скорость: высокая)</option>
+                        <option value="monster">🚙 Монстр трак (скорость: средняя)</option>
+                        <option value="classic">🏎️ Классика (скорость: низкая)</option>
+                    </select>
+                </div>
+                
+                <div class="selection-group">
+                    <label>Выберите трассу:</label>
+                    <select id="trackSelect">
+                        <option value="desert">🏜️ Пустыня (длинная)</option>
+                        <option value="city">🏙️ Город (средняя)</option>
+                        <option value="mountain">⛰️ Горы (сложная)</option>
+                    </select>
+                </div>
+                
+                <button onclick="joinGame()">🏁 Начать гонку</button>
             </div>
         </div>
         
         <div id="gameScreen" class="screen hidden">
-            <div class="game-info">
-                <div class="players-list">
-                    <h3>Игроки на трассе:</h3>
-                    <div id="playersContainer"></div>
+            <div class="game-header">
+                <div class="track-controls">
+                    <select id="trackSelectGame" onchange="changeTrack()">
+                        <option value="desert">🏜️ Пустыня</option>
+                        <option value="city">🏙️ Город</option>
+                        <option value="mountain">⛰️ Горы</option>
+                    </select>
+                </div>
+                <div id="raceStatus" class="race-status">Ожидание игроков...</div>
+            </div>
+            
+            <div class="game-area">
+                <div class="sidebar left-sidebar">
+                    <div class="players-list">
+                        <h3>👥 Гонщики</h3>
+                        <div id="playersContainer"></div>
+                    </div>
                 </div>
                 
-                <div class="race-info">
-                    <div id="raceStatus">Ожидание игроков...</div>
-                    <div class="controls-info">
-                        <p>Управление: ← → (движение), Пробел (ускорение)</p>
+                <div class="race-track">
+                    <canvas id="gameCanvas" width="800" height="600"></canvas>
+                </div>
+                
+                <div class="sidebar right-sidebar">
+                    <div id="leaderboard" class="leaderboard">
+                        <h3>🏆 Таблица лидеров</h3>
+                        <div id="leaderboardList"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="race-track">
-                <canvas id="gameCanvas" width="800" height="400"></canvas>
-            </div>
-            
-            <div id="leaderboard" class="leaderboard">
-                <h3>Таблица лидеров</h3>
-                <div id="leaderboardList"></div>
+            <div class="controls-info">
+                <p>Управление: W/A/S/D или Стрелки ←↑→↓ | Ускорение: W/↑ | Поворот: A/D или ←→</p>
             </div>
         </div>
     </div>
