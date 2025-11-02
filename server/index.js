@@ -12,25 +12,26 @@ const io = socketIo(server, {
   }
 });
 
-// Middleware
-app.use(express.static(path.join(__dirname, '../static')));
-app.use(express.static(path.join(__dirname, '../games')));
+const rootDir = path.join(__dirname, '..');
 
-// Маршруты для игр
+app.use(express.static(path.join(rootDir, 'static')));
+app.use('/games', express.static(path.join(rootDir, 'games')));
+
+// Маршруты
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../static/index.html'));
+  res.sendFile(path.join(rootDir, 'static/index.html'));
 });
 
 app.get('/snake', (req, res) => {
-  res.sendFile(path.join(__dirname, '../games/snake/snake.html'));
+  res.sendFile(path.join(rootDir, 'games/snake/snake.html'));
 });
 
 app.get('/tetris', (req, res) => {
-  res.sendFile(path.join(__dirname, '../games/tetris/tetris.html'));
+  res.sendFile(path.join(rootDir, 'games/tetris/tetris.html'));
 });
 
 app.get('/racing', (req, res) => {
-  res.sendFile(path.join(__dirname, '../games/racing/racing.html'));
+  res.sendFile(path.join(rootDir, 'games/racing/racing.html'));
 });
 
 // Мультиплеер для гонок
