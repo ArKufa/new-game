@@ -11,6 +11,11 @@
         <header>
             <h1>🐍 Змейка</h1>
             <div class="controls">
+                <select id="modelSelect">
+                    <option value="classic">Классическая</option>
+                    <option value="modern">Модерн</option>
+                    <option value="retro">Ретро</option>
+                </select>
                 <button onclick="resetGame()">🔄 Новая игра</button>
                 <button onclick="window.location.href='/'">🏠 Главная</button>
             </div>
@@ -19,6 +24,7 @@
         <div class="game-info">
             <div class="score">Счет: <span id="score">0</span></div>
             <div class="high-score">Рекорд: <span id="highScore">0</span></div>
+            <div class="model-info">Модель: <span id="modelName">Классическая</span></div>
         </div>
         
         <div class="game-container">
